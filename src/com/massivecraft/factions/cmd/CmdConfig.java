@@ -207,14 +207,14 @@ public class CmdConfig extends FCommand
 					{
 						matSet.remove(newMat);
 						target.set(null, matSet);
-						success = "\""+fieldName+"\" set: Material \""+value.toUpperCase()+"\" removed.";
+						success = "Parametrage de \""+fieldName+"\": Retrait du bloc-materiel \""+value.toUpperCase()+"\"";
 					}
 					// Material not present yet, add it
 					else
 					{
 						matSet.add(newMat);
 						target.set(null, matSet);
-						success = "\""+fieldName+"\" set: Material \""+value.toUpperCase()+"\" added.";
+						success = "Parametrage de \""+fieldName+"\": Ajout du bloc-materiel \""+value.toUpperCase()+"\"";
 					}
 				}
 
@@ -229,21 +229,21 @@ public class CmdConfig extends FCommand
 					{
 						stringSet.remove(value);
 						target.set(null, stringSet);
-						success = "\""+fieldName+"\" set: \""+value+"\" removed.";
+						success = "Parametrage de \""+fieldName+"\": Retrait de \""+value+"\".";
 					}
 					// String not present yet, add it
 					else 
 					{
 						stringSet.add(value);
 						target.set(null, stringSet);
-						success = "\""+fieldName+"\" set: \""+value+"\" added.";
+						success = "Parametrage de \""+fieldName+"\": Ajout de \""+value+"\".";
 					}
 				}
 
 				// Set of unknown type
 				else
 				{
-					sendMessage("\""+fieldName+"\" is not a data type set which can be modified with this command.");
+					sendMessage("Le parametrage de \""+fieldName+"\" ne peut pas se faire avec cette commande.");
 					return;
 				}
 			}
@@ -251,18 +251,18 @@ public class CmdConfig extends FCommand
 			// unknown type
 			else
 			{
-				sendMessage("\""+fieldName+"\" is not a data type which can be modified with this command.");
+				sendMessage("Le parametrage de \""+fieldName+"\" ne peut pas se faire avec cette commande.");
 				return;
 			}
 		}
 		catch (NoSuchFieldException ex)
 		{
-			sendMessage("Configuration setting \""+fieldName+"\" couldn't be matched, though it should be... please report this error.");
+			sendMessage("Le parametre de configuration \""+fieldName+"\" ne correspond pas, alors qu'il devrait... Merci de signaler cette erreur.");
 			return;
 		}
 		catch (IllegalAccessException ex)
 		{
-			sendMessage("Error setting configuration setting \""+fieldName+"\" to \""+value+"\".");
+			sendMessage("Erreur de configuration sur le parametrage de \""+fieldName+"\" en \""+value+"\".");
 			return;
 		}
 
@@ -271,7 +271,7 @@ public class CmdConfig extends FCommand
 			sendMessage(success);
 			if (sender instanceof Player)
 			{
-				P.p.log(success + " Command was run by "+fme.getName()+".");
+				P.p.log(success + " - Auteur de la commande: "+fme.getName()+".");
 			}
 		}
 		// save change to disk
