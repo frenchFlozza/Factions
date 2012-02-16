@@ -60,7 +60,7 @@ public class CmdConfig extends FCommand
 
 		if (fieldName == null || fieldName.isEmpty())
 		{
-			msg("<b>No configuration setting \"<h>%s<b>\" exists.", field);
+			msg("<b>Dans la configuration, aucun parametre \"<h>%s<b>\" n'a ete trouve.", field);
 			return;
 		}
 
@@ -84,11 +84,11 @@ public class CmdConfig extends FCommand
 				
 				if (targetValue)
 				{
-					success = "\""+fieldName+"\" option set to true (enabled).";
+					success = "Parametre \""+fieldName+"\" defini sur true (active).";
 				}
 				else
 				{
-					success = "\""+fieldName+"\" option set to false (disabled).";
+					success = "Parametre \""+fieldName+"\" defini sur false (desactive).";
 				}
 			}
 
@@ -99,11 +99,11 @@ public class CmdConfig extends FCommand
 				{
 					int intVal = Integer.parseInt(value);
 					target.setInt(null, intVal);
-					success = "\""+fieldName+"\" option set to "+intVal+".";
+					success = "Parametre \""+fieldName+"\" redefini a "+intVal+".";
 				}
 				catch(NumberFormatException ex)
 				{
-					sendMessage("Cannot set \""+fieldName+"\": integer (whole number) value required.");
+					sendMessage("Impossible de modifier le parametre \""+fieldName+"\": ne supporte qu'un entier(nombre/chiffre).");
 					return;
 				}
 			}
@@ -115,11 +115,11 @@ public class CmdConfig extends FCommand
 				{
 					double doubleVal = Double.parseDouble(value);
 					target.setDouble(null, doubleVal);
-					success = "\""+fieldName+"\" option set to "+doubleVal+".";
+					success = "Parametre \""+fieldName+"\" defini a "+doubleVal+".";
 				}
 				catch(NumberFormatException ex)
 				{
-					sendMessage("Cannot set \""+fieldName+"\": double (numeric) value required.");
+					sendMessage("Impossible de redefinir le parametre \""+fieldName+"\": ne supportant qu'un double (numerique).");
 					return;
 				}
 			}
@@ -131,11 +131,11 @@ public class CmdConfig extends FCommand
 				{
 					float floatVal = Float.parseFloat(value);
 					target.setFloat(null, floatVal);
-					success = "\""+fieldName+"\" option set to "+floatVal+".";
+					success = "Parametre \""+fieldName+"\" defini a "+floatVal+".";
 				}
 				catch(NumberFormatException ex)
 				{
-					sendMessage("Cannot set \""+fieldName+"\": float (numeric) value required.");
+					sendMessage("Impossible de redefinir le parametre \""+fieldName+"\": ne supportant qu'un nombre reel simple)");
 					return;
 				}
 			}
@@ -144,7 +144,7 @@ public class CmdConfig extends FCommand
 			else if (target.getType() == String.class)
 			{
 				target.set(null, value);
-				success = "\""+fieldName+"\" option set to \""+value+"\".";
+				success = "Parametre \""+fieldName+"\" defini en \""+value+"\".";
 			}
 
 			// ChatColor
@@ -161,11 +161,11 @@ public class CmdConfig extends FCommand
 				}
 				if (newColor == null)
 				{
-					sendMessage("Cannot set \""+fieldName+"\": \""+value.toUpperCase()+"\" is not a valid color.");
+					sendMessage("Impossible de redefinir le parametre \""+fieldName+"\": \""+value.toUpperCase()+"\" n'est pas une couleur valide.");
 					return;
 				}
 				target.set(null, newColor);
-				success = "\""+fieldName+"\" color option set to \""+value.toUpperCase()+"\".";
+				success = "Parametre de couleur de  \""+fieldName+"\" defini en \""+value.toUpperCase()+"\".";
 			}
 
 			// Set<?> or other parameterized collection
@@ -177,7 +177,7 @@ public class CmdConfig extends FCommand
 				// not a Set, somehow, and that should be the only collection we're using in Conf.java
 				if (targSet.getRawType() != Set.class)
 				{
-					sendMessage("\""+fieldName+"\" is not a data collection type which can be modified with this command.");
+					sendMessage("La parametre \""+fieldName+"\" ne peut pas etre modifie avec cette commande.");
 					return;
 				}
 
@@ -195,7 +195,7 @@ public class CmdConfig extends FCommand
 					}
 					if (newMat == null)
 					{
-						sendMessage("Cannot change \""+fieldName+"\" set: \""+value.toUpperCase()+"\" is not a valid material.");
+						sendMessage("Impossible de changer le parametre \""+fieldName+"\": \""+value.toUpperCase()+"\" n'est pas un bloc-materiel valide.");
 						return;
 					}
 
