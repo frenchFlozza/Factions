@@ -37,13 +37,13 @@ public class CmdHelp extends FCommand
 		
 		int page = this.argAsInt(0, 1);
 		
-		sendMessage(p.txt.titleize("Factions Help ("+page+"/"+helpPages.size()+")"));
+		sendMessage(p.txt.titleize("Aide Factions ("+page+"/"+helpPages.size()+")"));
 		
 		page -= 1;
 		
 		if (page < 0 || page >= helpPages.size())
 		{
-			msg("<b>This page does not exist");
+			msg("<b>La page demandee n'existe pas");
 			return;
 		}
 		sendMessage(helpPages.get(page));
@@ -69,7 +69,7 @@ public class CmdHelp extends FCommand
 		pageLines.add( p.cmdBase.cmdLeave.getUseageTemplate(true) );
 		pageLines.add( p.cmdBase.cmdChat.getUseageTemplate(true) );
 		pageLines.add( p.cmdBase.cmdHome.getUseageTemplate(true) );
-		pageLines.add( p.txt.parse("<i>Learn how to create a faction on the next page.") );
+		pageLines.add( p.txt.parse("<i>Savoir comment creer une guilde, sur la prochaine page.") );
 		helpPages.add(pageLines);
 		
 		pageLines = new ArrayList<String>();
@@ -80,16 +80,16 @@ public class CmdHelp extends FCommand
 		pageLines.add( p.cmdBase.cmdOpen.getUseageTemplate(true) );
 		pageLines.add( p.cmdBase.cmdInvite.getUseageTemplate(true) );
 		pageLines.add( p.cmdBase.cmdDeinvite.getUseageTemplate(true) );
-		pageLines.add( p.txt.parse("<i>And don't forget to set your home:" ));
+		pageLines.add( p.txt.parse("<i>Et n'oubliez pas de definir votre point home:" ));
 		pageLines.add( p.cmdBase.cmdSethome.getUseageTemplate(true) );
 		helpPages.add(pageLines);
 		
 		if (Econ.isSetup() && Conf.econEnabled && Conf.bankEnabled)
 		{
 			pageLines = new ArrayList<String>();
-			pageLines.add( p.txt.parse("<i>Your faction has a bank which is used to pay for certain" ));
-			pageLines.add( p.txt.parse("<i>things, so it will need to have money deposited into it." ));
-			pageLines.add( p.txt.parse("<i>To learn more, use the money command." ));
+			pageLines.add( p.txt.parse("<i>Votre guilde dispose d'une tresorerie, utilisable pour payer" ));
+			pageLines.add( p.txt.parse("<i>certaines choses, a condition qu'il y ait de l'argent." ));
+			pageLines.add( p.txt.parse("<i>Pour en savoir plus, utilisez la commande money." ));
 			pageLines.add( "" );
 			pageLines.add( p.cmdBase.cmdMoney.getUseageTemplate(true) );
 			pageLines.add( "" );
@@ -107,7 +107,7 @@ public class CmdHelp extends FCommand
 		pageLines.add( p.cmdBase.cmdOfficer.getUseageTemplate(true) );
 		pageLines.add( p.cmdBase.cmdLeader.getUseageTemplate(true) );
 		pageLines.add( p.cmdBase.cmdTitle.getUseageTemplate(true) );
-		pageLines.add( p.txt.parse("<i>Player titles are just for fun. No rules connected to them." ));
+		pageLines.add( p.txt.parse("<i>Les titres des joueurs sont uniquement decoratifs." ));
 		helpPages.add(pageLines);
 		
 		pageLines = new ArrayList<String>();
