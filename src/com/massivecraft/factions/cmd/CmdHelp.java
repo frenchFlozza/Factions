@@ -76,7 +76,7 @@ public class CmdHelp extends FCommand
 		pageLines.add( p.cmdBase.cmdCreate.getUseageTemplate(true) );
 		pageLines.add( p.cmdBase.cmdDescription.getUseageTemplate(true) );
 		pageLines.add( p.cmdBase.cmdTag.getUseageTemplate(true) );
-		pageLines.add( p.txt.parse("<i>You might want to close it and use invitations:" ));
+		pageLines.add( p.txt.parse("<i>Si vous voulez fermer la guilde, afin de la rejoindre sur invitation:" ));
 		pageLines.add( p.cmdBase.cmdOpen.getUseageTemplate(true) );
 		pageLines.add( p.cmdBase.cmdInvite.getUseageTemplate(true) );
 		pageLines.add( p.cmdBase.cmdDeinvite.getUseageTemplate(true) );
