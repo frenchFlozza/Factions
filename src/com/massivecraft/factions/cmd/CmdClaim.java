@@ -38,7 +38,7 @@ public class CmdClaim extends FCommand
 		// just to cut the unauthorized off immediately instead of going on to do radius calculations
 		if (! fme.canClaimForFactionAtLocation(forFaction, me.getLocation(), false))
 		{
-			msg("<b>You do not currently have permission to claim land for the faction "+forFaction.describeTo(fme) +"<b>.");
+			msg("<b>Actuellement vous n'avez pas le droit de reclamer un terrain pour la faction "+forFaction.describeTo(fme) +"<b>.");
 			return;
 		}
 
@@ -46,12 +46,12 @@ public class CmdClaim extends FCommand
 		radius -= 0.5;
 		if (radius <= 0)
 		{
-			msg("<b>That radius is to small.");
+			msg("<b>Ce rayon est trop petit.");
 			return;
 		}
 		else if (radius > 100)  // huge radius can crash server
 		{
-			msg("<b>That radius is overly large. Remember that the radius is in chunks (16x16 blocks), not individual blocks.");
+			msg("<b>Ce rayon est trop large. Souvenez vous qu'il est exprime en chunk (16x16 blocs), pas en bloc individuel.");
 			return;
 		}
 		
