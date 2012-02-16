@@ -78,7 +78,7 @@ public class CmdCreate extends FCommand
 		msg("<i>You should now: %s", p.cmdBase.cmdDescription.getUseageTemplate());
 
 		if (Conf.logFactionCreate)
-			P.p.log(fme.getName()+" vient de creer la guilde: "+tag);
+			P.p.log(fme.getName()+" cree la guilde: "+tag);
 	}
 	
 }
