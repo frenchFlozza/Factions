@@ -30,7 +30,7 @@ public class CmdAutoClaim extends FCommand
 		if (forFaction == null || forFaction == fme.getAutoClaimFor())
 		{
 			fme.setAutoClaimFor(null);
-			msg("<i>Auto-claiming of land disabled.");
+			msg("<i>La reclamation automatique des terrains est maintenant desactive.");
 			return;
 		}
 		
@@ -38,7 +38,7 @@ public class CmdAutoClaim extends FCommand
 		
 		fme.setAutoClaimFor(forFaction);
 		
-		msg("<i>Now auto-claiming land for <h>%s<i>.", forFaction.describeTo(fme));
+		msg("<i>La reclamation automatique du terrain est maintenant active pour <h>%s<i>.", forFaction.describeTo(fme));
 		fme.attemptClaim(forFaction, me.getLocation(), true);
 	}
 	
