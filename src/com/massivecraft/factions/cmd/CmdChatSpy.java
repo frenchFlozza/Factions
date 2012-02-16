@@ -28,13 +28,13 @@ public class CmdChatSpy extends FCommand
 		
 		if ( fme.isSpyingChat())
 		{
-			fme.msg("<i>You have enabled chat spying mode.");
-			P.p.log(fme.getName() + " has ENABLED chat spying mode.");
+			fme.msg("<i>Vous avez active le mode d'espionnage du tchat");
+			P.p.log(fme.getName() + " a demarre l'espionnage du tchat");
 		}
 		else
 		{
-			fme.msg("<i>You have disabled chat spying mode.");
-			P.p.log(fme.getName() + " DISABLED chat spying mode.");
+			fme.msg("<i>Vous avez desactive le mode d'espionnage du tchat");
+			P.p.log("L'espionnage du tchat a ete stoppe par " + fme.getName());
 		}
 	}
 }
