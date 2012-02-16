@@ -37,13 +37,13 @@ public class CmdCreate extends FCommand
 		
 		if (fme.hasFaction())
 		{
-			msg("<b>You must leave your current faction first.");
+			msg("<b>Vous devez quitter votre faction d'abord.");
 			return;
 		}
 		
 		if (Factions.i.isTagTaken(tag))
 		{
-			msg("<b>That tag is already in use.");
+			msg("<b>Ce tag est deja pris.");
 			return;
 		}
 		
@@ -62,7 +62,7 @@ public class CmdCreate extends FCommand
 		// TODO: Why would this even happen??? Auto increment clash??
 		if (faction == null)
 		{
-			msg("<b>There was an internal error while trying to create your faction. Please try again.");
+			msg("<b>Une erreur interne s'est produite durant la creation de votre faction.");
 			return;
 		}
 
