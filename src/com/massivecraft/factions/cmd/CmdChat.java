@@ -30,7 +30,7 @@ public class CmdChat extends FCommand
 	{
 		if ( ! Conf.factionOnlyChat )
 		{
-			msg("<b>The built in chat chat channels are disabled on this server.");
+			msg("<b>Le tchat par categorie n'est pas autorise sur ce serveur.");
 			return;
 		}
 		
@@ -54,7 +54,7 @@ public class CmdChat extends FCommand
 			}
 			else
 			{
-				msg("<b>Unrecognised chat mode. <i>Please enter either 'a','f' or 'p'");
+				msg("<b>Categorie de tchat non reconnu. <i>Choisissez parmis 'a','f' ou 'p'");
 				return;
 			}
 		}
@@ -63,15 +63,15 @@ public class CmdChat extends FCommand
 		
 		if(fme.getChatMode() == ChatMode.PUBLIC)
 		{
-			msg("<i>Public chat mode.");
+			msg("<i>Mode de tchat public.");
 		}
 		else if (fme.getChatMode() == ChatMode.ALLIANCE )
 		{
-			msg("<i>Alliance only chat mode.");
+			msg("<i>Mode de tchat alliance seulement");
 		}
 		else
 		{
-			msg("<i>Faction only chat mode.");
+			msg("<i>Mode de tchat faction seulement.");
 		}
 	}
 }
