@@ -1,4 +1,4 @@
-package com.massivecraft.factions.cmd;
+lpackage com.massivecraft.factions.cmd;
 
 import java.util.ArrayList;
 
@@ -37,7 +37,7 @@ public class CmdCreate extends FCommand
 		
 		if (fme.hasFaction())
 		{
-			msg("<b>Vous devez quitter votre faction d'abord.");
+			msg("<b>Vous devez quitter votre guilde d'abord.");
 			return;
 		}
 		
@@ -62,7 +62,7 @@ public class CmdCreate extends FCommand
 		// TODO: Why would this even happen??? Auto increment clash??
 		if (faction == null)
 		{
-			msg("<b>Une erreur interne s'est produite durant la creation de votre faction.");
+			msg("<b>Une erreur interne s'est produite durant la creation de votre guilde.Veuillez reessayer");
 			return;
 		}
 
@@ -72,13 +72,13 @@ public class CmdCreate extends FCommand
 
 		for (FPlayer follower : FPlayers.i.getOnline())
 		{
-			follower.msg("%s<i> created a new faction %s", fme.describeTo(follower, true), faction.getTag(follower));
+			follower.msg("%s<i> vient de creer la guilde %s", fme.describeTo(follower, true), faction.getTag(follower));
 		}
 		
 		msg("<i>You should now: %s", p.cmdBase.cmdDescription.getUseageTemplate());
 
 		if (Conf.logFactionCreate)
-			P.p.log(fme.getName()+" created a new faction: "+tag);
+			P.p.log(fme.getName()+" vient de creer la guilde: "+tag);
 	}
 	
 }
