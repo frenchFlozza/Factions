@@ -41,7 +41,7 @@ public class CmdDisband extends FCommand
 
 		if (faction.getFlag(FFlag.PERMANENT))
 		{
-			msg("<i>This faction is designated as permanent, so you cannot disband it.");
+			msg("<i>Cette guilde a ete definie permanente. Vous ne pouvez pas la dissoudre.");
 			return;
 		}
 
@@ -51,15 +51,15 @@ public class CmdDisband extends FCommand
 			String who = senderIsConsole ? "A server admin" : fme.describeTo(fplayer);
 			if (fplayer.getFaction() == faction)
 			{
-				fplayer.msg("<h>%s<i> disbanded your faction.", who);
+				fplayer.msg("<h>%s<i> a dissout votre guilde.", who);
 			}
 			else
 			{
-				fplayer.msg("<h>%s<i> disbanded the faction %s.", who, faction.getTag(fplayer));
+				fplayer.msg("<h>%s<i> a dissout la guilde %s.", who, faction.getTag(fplayer));
 			}
 		}
 		if (Conf.logFactionDisband)
-			P.p.log("The faction "+faction.getTag()+" ("+faction.getId()+") was disbanded by "+(senderIsConsole ? "console command" : fme.getName())+".");
+			P.p.log("La guilde "+faction.getTag()+" ("+faction.getId()+") a ete dissoute par "+(senderIsConsole ? "console command" : fme.getName())+".");
 
 		if (Econ.shouldBeUsed() && ! senderIsConsole)
 		{
@@ -70,8 +70,8 @@ public class CmdDisband extends FCommand
 			if (amount > 0.0)
 			{
 				String amountString = Econ.moneyString(amount);
-				msg("<i>You have been given the disbanded faction's bank, totaling %s.", amountString);
-				P.p.log(fme.getName() + " has been given bank holdings of "+amountString+" from disbanding "+faction.getTag()+".");
+				msg("<i>Vous recuperez la tresorerie de la guilde dissoute, soit un total de %s.", amountString);
+				P.p.log(fme.getName() + " a recupere la somme de "+amountString+" par la dissolution de la guilde "+faction.getTag()+".");
 			}
 		}		
 		
